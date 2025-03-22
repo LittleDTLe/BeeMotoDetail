@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './Modal.css'
 
 // Connect to the WebSocket server
-const socket = io("http://localhost:5000"); // Adjust the URL if needed
+const socket = io("https://beemotodetail-server.onrender.com"); // Adjust the URL if needed
 
 
 const Modal = ({ onClose }) => {
@@ -37,7 +37,7 @@ const Modal = ({ onClose }) => {
       // Fetch available timeslots when a date is selected
       useEffect(() => {
         if (formData.date) {
-          fetch(`http://localhost:5000/api/timeslots/${formData.date}`)
+          fetch(`https://beemotodetail-server.onrender.com/api/timeslots/${formData.date}`)
             .then(res => res.json())
             .then(data => setAvailableTimes(data))
             .catch(err => console.error("Error fetching timeslots:", err));
@@ -82,7 +82,7 @@ const Modal = ({ onClose }) => {
         }
     
         // Then, book the appointment via our backend API
-        const response = await fetch("http://localhost:5000/api/book", {
+        const response = await fetch("https://beemotodetail-server.onrender.com/api/book", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(formData),

@@ -1,0 +1,15 @@
+.book-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+    .book-button{
+        left: 2rem;
+        right: auto;
+    }
+}
